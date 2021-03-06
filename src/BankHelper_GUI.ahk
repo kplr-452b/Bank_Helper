@@ -41,7 +41,7 @@ Loading:
 	Gui, 1: +AlwaysOnTop
 	Gui, 1: Color, Black
 	Gui, 1: Font, s6 cWhite
-	Gui, 1: Add, Text, x5 y0 w200 h10 , Загрузка всех необходимых файлов
+	Gui, 1: Add, Text, x5 y0 w200 h10 , Р—Р°РіСЂСѓР·РєР° РІСЃРµС… РЅРµРѕР±С…РѕРґРёРјС‹С… С„Р°Р№Р»РѕРІ
 	Gui, 1: Add, Progress, x5 y10 w200 h10 BackgroundBlack cred vPro1 Range0-%myRange%,0
 	Gui, 1: Show, w210 h22
 	Gosub, Looping
@@ -70,21 +70,21 @@ start:
 	
 	if (!checkFiles())
 	{
-		MsgBox, 0x10, BankHelper, Отсутствуют некоторые файлы хелпера, начинаю скачивать... 
+		MsgBox, 0x10, BankHelper, РћС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ РЅРµРєРѕС‚РѕСЂС‹Рµ С„Р°Р№Р»С‹ С…РµР»РїРµСЂР°, РЅР°С‡РёРЅР°СЋ СЃРєР°С‡РёРІР°С‚СЊ... 
 		repairFiles()
 	}
 	
 	Menu, Tray, Icon, %A_ScriptDir%\BankHelper\data\helper.ico, 1
 	
-	Gui, Add, Button, x25 y400 w120 h50 gSave, Сохранить
-	Gui, Add, Button, x150 y400 w120 h50 gUpdate, Обновить
+	Gui, Add, Button, x25 y400 w120 h50 gSave, РЎРѕС…СЂР°РЅРёС‚СЊ
+	Gui, Add, Button, x150 y400 w120 h50 gUpdate, РћР±РЅРѕРІРёС‚СЊ
 	
-	Gui, Add, Text, x300 y400 cBlue gLaunchGroup, Группа Rodina Helpers
+	Gui, Add, Text, x300 y400 cBlue gLaunchGroup, Р“СЂСѓРїРїР° Rodina Helpers
 	Gui, Add, Text, x300 y420 cBlue gLaunchDev1, Maxim_Chekistov
 	Gui, Add, Text, x300 y440 cBlue gLaunchDev2, Dmitriy_Hawk
 	
-	Gui, Add, Tab, x5 y5 w440 h390 , Главная|Настройки|Лекции
-	Gui, Tab, Главная
+	Gui, Add, Tab, x5 y5 w440 h390 , Р“Р»Р°РІРЅР°СЏ|РќР°СЃС‚СЂРѕР№РєРё|Р›РµРєС†РёРё
+	Gui, Tab, Р“Р»Р°РІРЅР°СЏ
 	{
 		Gui, Add, Picture, x30 y30 w150 h150, %A_ScriptDir%\BankHelper\data\img\logo.png
 		Gui, font, s15
@@ -92,98 +92,98 @@ start:
 		Gui, Font, S8 CDefault Normal
 		Gui, Add, GroupBox, x185 y90 w230 h70,
 		Gui, Add, GroupBox, x185 y90 w230 h40,
-		Gui, Add, GroupBox, x185 y90 w230 h100, Профиль
-		Gui, Add, Text, x195 y110 w200 h15 vlabel_pname, Фамилия и имя:
-		Gui, Add, Text, x195 y140 w200 h15 vlabel_prang, Должность:
-		Gui, Add, Text, x195 y170 w200 h15 vlabel_pserver, Округ:
+		Gui, Add, GroupBox, x185 y90 w230 h100, РџСЂРѕС„РёР»СЊ
+		Gui, Add, Text, x195 y110 w200 h15 vlabel_pname, Р¤Р°РјРёР»РёСЏ Рё РёРјСЏ:
+		Gui, Add, Text, x195 y140 w200 h15 vlabel_prang, Р”РѕР»Р¶РЅРѕСЃС‚СЊ:
+		Gui, Add, Text, x195 y170 w200 h15 vlabel_pserver, РћРєСЂСѓРі:
 		
 		Gui, Add, GroupBox, x15 y200 w400 h180, Changelog
 		Gui, Font, Bold
-		Gui, Add, Text, x25 y230 w380 h155, 1. Убраны автозаполнение /me /do /todo`n`n2. Отыгровка операции со счетом перенесена на хоткей`n`n3. Изменена отыгровка рации
+		Gui, Add, Text, x25 y230 w380 h155, 1. РЈР±СЂР°РЅС‹ Р°РІС‚РѕР·Р°РїРѕР»РЅРµРЅРёРµ /me /do /todo`n`n2. РћС‚С‹РіСЂРѕРІРєР° РѕРїРµСЂР°С†РёРё СЃРѕ СЃС‡РµС‚РѕРј РїРµСЂРµРЅРµСЃРµРЅР° РЅР° С…РѕС‚РєРµР№`n`n3. РР·РјРµРЅРµРЅР° РѕС‚С‹РіСЂРѕРІРєР° СЂР°С†РёРё
 		Gui, Font, S8 CDefault Normal
 	}
-	Gui, Tab, Настройки
+	Gui, Tab, РќР°СЃС‚СЂРѕР№РєРё
 	{
-		Gui, Add, GroupBox, x10 y30 w430 h150 , Основные настройки
-		Gui, Add, Text, x25 y55 w100 h15 vlabel_name, Имя:
+		Gui, Add, GroupBox, x10 y30 w430 h150 , РћСЃРЅРѕРІРЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё
+		Gui, Add, Text, x25 y55 w100 h15 vlabel_name, РРјСЏ:
 		Gui, Add, Edit, x100 y55 w150 h20 vedit_name,
-		Gui, Add, Text, x25 y85 w100 h15 vlabel_firstname, Фамилия:
+		Gui, Add, Text, x25 y85 w100 h15 vlabel_firstname, Р¤Р°РјРёР»РёСЏ:
 		Gui, Add, Edit, x100 y85 w150 h20 vedit_firstname,
-		Gui, Add, Text, x25 y115 w100 h15 vlabel_rang, Должность:
+		Gui, Add, Text, x25 y115 w100 h15 vlabel_rang, Р”РѕР»Р¶РЅРѕСЃС‚СЊ:
 		Gui, Add, Edit, x100 y115 w150 h20 vedit_rang,
-		Gui, Add, Text, x25 y145 w100 h15 vlabel_server, Округ:
-		Gui, Add, DropDownList, x100 y145 w150 h80 vedit_server,Центральный округ|Южный округ|Северный округ|Восточный округ
-		Gui, Add, Text, x280 y55 w100 h15 vlabel_tag, Тег рации:
+		Gui, Add, Text, x25 y145 w100 h15 vlabel_server, РћРєСЂСѓРі:
+		Gui, Add, DropDownList, x100 y145 w150 h80 vedit_server,Р¦РµРЅС‚СЂР°Р»СЊРЅС‹Р№ РѕРєСЂСѓРі|Р®Р¶РЅС‹Р№ РѕРєСЂСѓРі|РЎРµРІРµСЂРЅС‹Р№ РѕРєСЂСѓРі|Р’РѕСЃС‚РѕС‡РЅС‹Р№ РѕРєСЂСѓРі
+		Gui, Add, Text, x280 y55 w100 h15 vlabel_tag, РўРµРі СЂР°С†РёРё:
 		Gui, Add, Edit, x350 y55 w50 h20 vedit_tag,
-		Gui, Add, Text, x280 y85 w100 h15 vlabel_autoscreen, Автоскрин:
+		Gui, Add, Text, x280 y85 w100 h15 vlabel_autoscreen, РђРІС‚РѕСЃРєСЂРёРЅ:
 		Gui, Add, Checkbox, x350 y85 w50 h20 vcheckbox_autoscreen,
-		Gui, Add, Text, x280 y105 w150 h35 vlabel_blockinchat, Блокировать биндер при открытом чате:
+		Gui, Add, Text, x280 y105 w150 h35 vlabel_blockinchat, Р‘Р»РѕРєРёСЂРѕРІР°С‚СЊ Р±РёРЅРґРµСЂ РїСЂРё РѕС‚РєСЂС‹С‚РѕРј С‡Р°С‚Рµ:
 		Gui, Add, Checkbox, x370 y120 w50 h20 vcheckbox_blockinchat,
-		Gui, Add, Text, x280 y145 w100 h15 vlabel_sex, Пол:
-		Gui, Add, DropDownList, x320 y145 w80 h60 vedit_sex,Мужской|Женский
+		Gui, Add, Text, x280 y145 w100 h15 vlabel_sex, РџРѕР»:
+		Gui, Add, DropDownList, x320 y145 w80 h60 vedit_sex,РњСѓР¶СЃРєРѕР№|Р–РµРЅСЃРєРёР№
 	
-		Gui, Add, GroupBox, x10 y180 w430 h210, Клавиши
-		Gui, Add, Text, x25 y205 w100 h15 vlabel_welcome, Приветствие:
+		Gui, Add, GroupBox, x10 y180 w430 h210, РљР»Р°РІРёС€Рё
+		Gui, Add, Text, x25 y205 w100 h15 vlabel_welcome, РџСЂРёРІРµС‚СЃС‚РІРёРµ:
 		Gui, Add, Hotkey, x120 y205 w70 h20 vkey_welcome,
-		Gui, Add, Text, x25 y235 w100 h15 vlabel_alert, Предупреждение:
+		Gui, Add, Text, x25 y235 w100 h15 vlabel_alert, РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ:
 		Gui, Add, Hotkey, x120 y235 w70 h20 vkey_alert,
-		Gui, Add, Text, x25 y265 w100 h15 vlabel_lecture_dress, Лек. Дресс-Код:
+		Gui, Add, Text, x25 y265 w100 h15 vlabel_lecture_dress, Р›РµРє. Р”СЂРµСЃСЃ-РљРѕРґ:
 		Gui, Add, Hotkey, x120 y265 w70 h20 vkey_lecture_dress,
-		Gui, Add, Text, x25 y295 w100 h15 vlabel_lecture_drugs, Лек. Наркотики:
+		Gui, Add, Text, x25 y295 w100 h15 vlabel_lecture_drugs, Р›РµРє. РќР°СЂРєРѕС‚РёРєРё:
 		Gui, Add, Hotkey, x120 y295 w70 h20 vkey_lecture_drugs,
-		Gui, Add, Text, x25 y325 w100 h15 vlabel_menu, Главное меню:
+		Gui, Add, Text, x25 y325 w100 h15 vlabel_menu, Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ:
 		Gui, Add, Hotkey, x120 y325 w70 h20 vkey_menu,
-		Gui, Add, Text, x25 y355 w100 h15 vlabel_quickmenu, Быстрое меню:
+		Gui, Add, Text, x25 y355 w100 h15 vlabel_quickmenu, Р‘С‹СЃС‚СЂРѕРµ РјРµРЅСЋ:
 		Gui, Add, Hotkey, x120 y355 w70 h20 vkey_quickmenu,
 	
-		Gui, Add, Text, x205 y205 w100 h15 vlabel_lecture_eti, Лек. Этикет:
+		Gui, Add, Text, x205 y205 w100 h15 vlabel_lecture_eti, Р›РµРє. Р­С‚РёРєРµС‚:
 		Gui, Add, Hotkey, x315 y205 w70 h20 vkey_lecture_eti,
-		Gui, Add, Text, x205 y235 w100 h15 vlabel_lecture_rule, Лек. Устав:
+		Gui, Add, Text, x205 y235 w100 h15 vlabel_lecture_rule, Р›РµРє. РЈСЃС‚Р°РІ:
 		Gui, Add, Hotkey, x315 y235 w70 h20 vkey_lecture_rule,
-		Gui, Add, Text, x205 y265 w150 h15 vlabel_lecture_sub, Лек. Субординация:
+		Gui, Add, Text, x205 y265 w150 h15 vlabel_lecture_sub, Р›РµРє. РЎСѓР±РѕСЂРґРёРЅР°С†РёСЏ:
 		Gui, Add, Hotkey, x315 y265 w70 h20 vkey_lecture_sub,
-		Gui, Add, Text, x205 y295 w150 h15 vlabel_sobes, Собеседование:
+		Gui, Add, Text, x205 y295 w150 h15 vlabel_sobes, РЎРѕР±РµСЃРµРґРѕРІР°РЅРёРµ:
 		Gui, Add, Hotkey, x315 y295 w70 h20 vkey_sobes,
-		Gui, Add, Text, x205 y325 w150 h15 vlabel_report, Быстрый репорт:
+		Gui, Add, Text, x205 y325 w150 h15 vlabel_report, Р‘С‹СЃС‚СЂС‹Р№ СЂРµРїРѕСЂС‚:
 		Gui, Add, Hotkey, x315 y325 w70 h20 vkey_report,
-		Gui, Add, Text, x205 y355 w150 h15 vlabel_bankmenu, Операция со счетом:
+		Gui, Add, Text, x205 y355 w150 h15 vlabel_bankmenu, РћРїРµСЂР°С†РёСЏ СЃРѕ СЃС‡РµС‚РѕРј:
 		Gui, Add, Hotkey, x315 y355 w70 h20 vkey_bankmenu,
 	}
-	Gui, Tab, Лекции
+	Gui, Tab, Р›РµРєС†РёРё
 	{
-		Gui, Add, Text, x15 y35 w150 h15, Лекции:
+		Gui, Add, Text, x15 y35 w150 h15, Р›РµРєС†РёРё:
 		Gui, Add, ListBox, x15 y60 w150 h300 vlist_files,
-		Gui, Add, GroupBox, x180 y35 w250 h280, Редактор
-		Gui, Add, Text, x190 y60 w150 h15, Название лекции:
+		Gui, Add, GroupBox, x180 y35 w250 h280, Р РµРґР°РєС‚РѕСЂ
+		Gui, Add, Text, x190 y60 w150 h15, РќР°Р·РІР°РЅРёРµ Р»РµРєС†РёРё:
 		Gui, Add, Edit, x290 y60 w100 h20 vedit_lecturename,
-		Gui, Add, Text, x190 y90 w150 h15, Интервал:
+		Gui, Add, Text, x190 y90 w150 h15, РРЅС‚РµСЂРІР°Р»:
 		Gui, Add, Edit, x290 y90 w100 h20 number vedit_lectureinterval,
 		Gui, Add, Edit, x190 y120 w230 R13 vedit_lecturetext,
 		
-		Gui, Add, Button, x35 y355 w90 h30 gOpenLecture, Открыть
-		Gui, Add, Button, x190 y325 w90 h30 gCreateLecture, Добавить
-		Gui, Add, Button, x290 y325 w90 h30 gSaveLecture, Сохранить
-		Gui, Add, Button, x190 y360 w90 h30 gDeleteLecture, Удалить
+		Gui, Add, Button, x35 y355 w90 h30 gOpenLecture, РћС‚РєСЂС‹С‚СЊ
+		Gui, Add, Button, x190 y325 w90 h30 gCreateLecture, Р”РѕР±Р°РІРёС‚СЊ
+		Gui, Add, Button, x290 y325 w90 h30 gSaveLecture, РЎРѕС…СЂР°РЅРёС‚СЊ
+		Gui, Add, Button, x190 y360 w90 h30 gDeleteLecture, РЈРґР°Р»РёС‚СЊ
 	}
 	
 	IniRead iname, %A_ScriptDir%\BankHelper\config.ini, User, name
 	GuiControl,, edit_name, %iname%
 	IniRead value, %A_ScriptDir%\BankHelper\config.ini, User, firstname
 	GuiControl,, edit_firstname, %value%
-	GuiControl,, label_pname, Имя и фамилия: %iname% %value%
+	GuiControl,, label_pname, РРјСЏ Рё С„Р°РјРёР»РёСЏ: %iname% %value%
 	IniRead value, %A_ScriptDir%\BankHelper\config.ini, User, rang
 	GuiControl,, edit_rang, %value%
-	GuiControl,, label_prang, Должность: %value%
+	GuiControl,, label_prang, Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %value%
 	IniRead value, %A_ScriptDir%\BankHelper\config.ini, User, tag
 	GuiControl,, edit_tag, %value%
 	IniRead value, %A_ScriptDir%\BankHelper\config.ini, User, autoscreen
 	GuiControl,, checkbox_autoscreen, %value%
-	IniRead value, %A_ScriptDir%\BankHelper\config.ini, User, server, Центральный округ
+	IniRead value, %A_ScriptDir%\BankHelper\config.ini, User, server, Р¦РµРЅС‚СЂР°Р»СЊРЅС‹Р№ РѕРєСЂСѓРі
 	GuiControl, ChooseString, edit_server, %value%
-	GuiControl,, label_pserver, Округ: %value%
+	GuiControl,, label_pserver, РћРєСЂСѓРі: %value%
 	IniRead value, %A_ScriptDir%\BankHelper\config.ini, User, blockinchat
 	GuiControl,, checkbox_blockinchat, %value%
-	IniRead value, %A_ScriptDir%\BankHelper\config.ini, User, sex, Мужской
+	IniRead value, %A_ScriptDir%\BankHelper\config.ini, User, sex, РњСѓР¶СЃРєРѕР№
 	GuiControl, ChooseString, edit_sex, %value%
 	
 	IniRead value, %A_ScriptDir%\BankHelper\config.ini, Keys, key_welcome
@@ -326,7 +326,7 @@ SaveLecture:
 %edit_lecturetext%
 	), %A_ScriptDir%\BankHelper\server\lectures\%index_lecture%.txt
 	loadLectures()
-	MsgBox, , Лекция, Лекция успешно сохранена
+	MsgBox, , Р›РµРєС†РёСЏ, Р›РµРєС†РёСЏ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°
 	return 
 }
 
@@ -373,11 +373,11 @@ Save:
 	IniWrite %key_quickmenu%, %A_ScriptDir%\BankHelper\config.ini, Keys, key_quickmenu
 	IniWrite %key_bankmenu%, %A_ScriptDir%\BankHelper\config.ini, Keys, key_bankmenu
 	
-	GuiControl,, label_pname, Имя и фамилия: %edit_name% %edit_firstname%
-	GuiControl,, label_prang, Должность: %edit_rang%
-	GuiControl,, label_pserver, Округ: %edit_server%
+	GuiControl,, label_pname, РРјСЏ Рё С„Р°РјРёР»РёСЏ: %edit_name% %edit_firstname%
+	GuiControl,, label_prang, Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %edit_rang%
+	GuiControl,, label_pserver, РћРєСЂСѓРі: %edit_server%
 	
-	MsgBox,, Bank Helper, Данные успешно сохранены!
+	MsgBox,, Bank Helper, Р”Р°РЅРЅС‹Рµ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅС‹!
 	return
 }
 
@@ -392,13 +392,13 @@ repairFiles()
 	FileCreateDir, %A_ScriptDir%\BankHelper\server\Southern_District\
 	FileCreateDir, %A_ScriptDir%\BankHelper\server\lectures\
 	
-	SplashTextOn, 200, 80, Менеджер обновлений,  Ожидайте..`n------------------------`nЗагружаем Bank Helper [Plugin]!
+	SplashTextOn, 200, 80, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ..`n------------------------`nР—Р°РіСЂСѓР¶Р°РµРј Bank Helper [Plugin]!
 	URLDownloadToFile, %server_url_asi%, %A_ScriptDir%\BankHelper.asi
-	SplashTextOn, 200, 80, Менеджер обновлений,  Ожидайте..`n------------------------`nЗагружаем Bank Helper [GUI]!
+	SplashTextOn, 200, 80, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ..`n------------------------`nР—Р°РіСЂСѓР¶Р°РµРј Bank Helper [GUI]!
 	URLDownloadToFile, %server_url_logo%, %A_ScriptDir%\BankHelper\data\img\logo.png
 	URLDownloadToFile, %server_url_ico%, %A_ScriptDir%\BankHelper\data\helper.ico
 	URLDownloadToFile, %server_url_exe%, %A_ScriptDir%\BankHelper.exe
-	SplashTextOn, 200, 80, Менеджер обновлений,  Ожидайте..`n------------------------`nЗагружаем Bank Helper [Other]!
+	SplashTextOn, 200, 80, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ..`n------------------------`nР—Р°РіСЂСѓР¶Р°РµРј Bank Helper [Other]!
 	URLDownloadToFile, %server_url_server%/lectures/1.txt, %A_ScriptDir%\BankHelper\server\lectures\1.txt
 	URLDownloadToFile, %server_url_server%/lectures/2.txt, %A_ScriptDir%\BankHelper\server\lectures\2.txt
 	URLDownloadToFile, %server_url_server%/lectures/3.txt, %A_ScriptDir%\BankHelper\server\lectures\3.txt
@@ -430,13 +430,13 @@ Update:
 		FileCreateDir, %A_ScriptDir%\BankHelper\server\Southern_District\
 		FileCreateDir, %A_ScriptDir%\BankHelper\server\lectures\
 		
-		SplashTextOn, 200, 80, Менеджер обновлений,  Ожидайте..`n------------------------`nОбновляем Bank Helper [Plugin]!
+		SplashTextOn, 200, 80, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ..`n------------------------`nРћР±РЅРѕРІР»СЏРµРј Bank Helper [Plugin]!
 		URLDownloadToFile, %server_url_asi%, %A_ScriptDir%\BankHelper.asi
-		SplashTextOn, 200, 80, Менеджер обновлений,  Ожидайте..`n------------------------`nОбновляем Bank Helper [GUI]!
+		SplashTextOn, 200, 80, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ..`n------------------------`nРћР±РЅРѕРІР»СЏРµРј Bank Helper [GUI]!
 		URLDownloadToFile, %server_url_ico%, %A_ScriptDir%\BankHelper\data\helper.ico
 		URLDownloadToFile, %server_url_exe%, %A_ScriptDir%\BankHelper.exe
 		URLDownloadToFile, %server_url_logo%, %A_ScriptDir%\BankHelper\data\img\logo.png
-		SplashTextOn, 200, 80, Менеджер обновлений,  Ожидайте..`n------------------------`nОбновляем Bank Helper [Other]!
+		SplashTextOn, 200, 80, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ..`n------------------------`nРћР±РЅРѕРІР»СЏРµРј Bank Helper [Other]!
 		URLDownloadToFile, %server_url_server%/lectures/1.txt, %A_ScriptDir%\BankHelper\server\lectures\1.txt
 		URLDownloadToFile, %server_url_server%/lectures/2.txt, %A_ScriptDir%\BankHelper\server\lectures\2.txt
 		URLDownloadToFile, %server_url_server%/lectures/3.txt, %A_ScriptDir%\BankHelper\server\lectures\3.txt
@@ -453,7 +453,7 @@ Update:
 	}
 	else
 	{
-		MsgBox, 0x31, Обновление и восстановление, Обновление не найдено! Восстановить файлы?
+		MsgBox, 0x31, РћР±РЅРѕРІР»РµРЅРёРµ Рё РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ, РћР±РЅРѕРІР»РµРЅРёРµ РЅРµ РЅР°Р№РґРµРЅРѕ! Р’РѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ С„Р°Р№Р»С‹?
 		IfMsgBox, OK
 		{
 			repairFiles()

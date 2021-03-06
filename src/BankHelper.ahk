@@ -31,23 +31,23 @@
 #Include %A_ScriptDir%\lib\dialog.ahk
 #Include %A_ScriptDir%\lib\audio.ahk
 
-; Данные
+; Р”Р°РЅРЅС‹Рµ
 global version_build := 1
 global version_date := "01.01.2021"
 global server_url_update := "https://github.com/kplr-452b/Bank_Helper/raw/main/BankHelper/update.ini"
-global name := "Максим"
-global firstname := "Чекистов"
-global rang := "Охранник"
-global tag := "О"
+global name := "РњР°РєСЃРёРј"
+global firstname := "Р§РµРєРёСЃС‚РѕРІ"
+global rang := "РћС…СЂР°РЅРЅРёРє"
+global tag := "Рћ"
 global autoscreen := 0
-global server := "Центральный округ"
+global server := "Р¦РµРЅС‚СЂР°Р»СЊРЅС‹Р№ РѕРєСЂСѓРі"
 global server_folder := "Central_District"
 global BlockInChat := 0
 global radioOn := 0
-global sex := "Мужской"
+global sex := "РњСѓР¶СЃРєРѕР№"
 global plrSex := []
 
-; Хоткеи
+; РҐРѕС‚РєРµРё
 global key_welcome := Numpad0
 global key_alert := Numpad1
 global key_lecture_dress := Numpad2
@@ -61,14 +61,14 @@ global key_report := Numpad9
 global key_quickmenu := !1
 global key_bankmenu := !2
 
-; Цвета
+; Р¦РІРµС‚Р°
 global COLOR_RODINA_CAPTION := "{DE1439}"
 global COLOR_BLUE := 0x2849DB
 
 global targedID := -1
 
 /*
-	Загрузка клавиш из конфигурации
+	Р—Р°РіСЂСѓР·РєР° РєР»Р°РІРёС€ РёР· РєРѕРЅС„РёРіСѓСЂР°С†РёРё
 */
 loadHotkeys:
 {
@@ -123,7 +123,7 @@ loadHotkeys:
 }
 
 /*
-	Загрузка данных из конфигурации
+	Р—Р°РіСЂСѓР·РєР° РґР°РЅРЅС‹С… РёР· РєРѕРЅС„РёРіСѓСЂР°С†РёРё
 */
 loadData:
 {
@@ -138,16 +138,16 @@ loadData:
 	
 	if (server == "ERROR")
 	{
-		server = Центральный округ
+		server = Р¦РµРЅС‚СЂР°Р»СЊРЅС‹Р№ РѕРєСЂСѓРі
 	}
 	if (sex == "ERROR")
 	{
-		server = Мужской
+		server = РњСѓР¶СЃРєРѕР№
 	}
-	if (sex == "Женский")
+	if (sex == "Р–РµРЅСЃРєРёР№")
 	{
-		plrSex[1] := "а"
-		plrSex[2] := "ла"
+		plrSex[1] := "Р°"
+		plrSex[2] := "Р»Р°"
 	}		
 	else
 	{
@@ -162,7 +162,7 @@ loadData:
 
 #IfWinActive GTA:SA:MP
 /*
-	Инитилизация
+	РРЅРёС‚РёР»РёР·Р°С†РёСЏ
 */
 onLoad:
 {
@@ -173,17 +173,17 @@ onLoad:
 		IniRead, temp_value, %A_ScriptDir%\BankHelper\update.ini, Main, version
 		version_date = %temp_value%
 		
-		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Bank Helper успешно загружен. Используемая версия от " version_date ".")
-		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Чтобы открыть главное меню введите: /bh.")
-		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Разработчик Maxim_Chekistov & Dmitriy_Hawk.")
+		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Bank Helper СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ. РСЃРїРѕР»СЊР·СѓРµРјР°СЏ РІРµСЂСЃРёСЏ РѕС‚ " version_date ".")
+		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р§С‚РѕР±С‹ РѕС‚РєСЂС‹С‚СЊ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ РІРІРµРґРёС‚Рµ: /bh.")
+		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р Р°Р·СЂР°Р±РѕС‚С‡РёРє Maxim_Chekistov & Dmitriy_Hawk.")
 		
 		URLDownloadToFile, %server_url_update%, %A_Temp%\update.ini
 		IniRead, UpdateBuild, %A_Temp%\update.ini, Main, build
 		IniRead, UpdateVersion, %A_Temp%\update.ini, Main, version
 		if UpdateBuild > % version_build
 		{
-			addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Вышло обновление от " UpdateVersion ".")
-			addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Чтобы обновиться зайдите в настройки и нажмите 'Обновить'.")
+			addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р’С‹С€Р»Рѕ РѕР±РЅРѕРІР»РµРЅРёРµ РѕС‚ " UpdateVersion ".")
+			addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р§С‚РѕР±С‹ РѕР±РЅРѕРІРёС‚СЊСЃСЏ Р·Р°Р№РґРёС‚Рµ РІ РЅР°СЃС‚СЂРѕР№РєРё Рё РЅР°Р¶РјРёС‚Рµ 'РћР±РЅРѕРІРёС‚СЊ'.")
 		}
 		
 		CMD.Register("expel", "Binder_expel")
@@ -217,13 +217,13 @@ onLoad:
 		CMD.Register("uninvite", "Binder_uninvite")
 		CMD.Register("clear", "Binder_clearchat")
 		
-		if (InStr(server, "Центральный округ"))
+		if (InStr(server, "Р¦РµРЅС‚СЂР°Р»СЊРЅС‹Р№ РѕРєСЂСѓРі"))
 			server_folder = Central_District
-		if (InStr(server, "Южный округ"))
+		if (InStr(server, "Р®Р¶РЅС‹Р№ РѕРєСЂСѓРі"))
 			server_folder = Southern_District
-		if (InStr(server, "Северный округ"))
+		if (InStr(server, "РЎРµРІРµСЂРЅС‹Р№ РѕРєСЂСѓРі"))
 			server_folder = Northern_District
-		if (InStr(server, "Восточный округ"))
+		if (InStr(server, "Р’РѕСЃС‚РѕС‡РЅС‹Р№ РѕРєСЂСѓРі"))
 			server_folder = Eastern_District
 		
 		SetTimer, onLoad, off
@@ -233,7 +233,7 @@ onLoad:
 }
 
 /*
-	Репорт система
+	Р РµРїРѕСЂС‚ СЃРёСЃС‚РµРјР°
 */
 global proxy := "https://vk-api-proxy.xtrafrancyz.net/_/"
 global token := "7c4172941fa3419942d883920cc73344b9d1b56b4810b5867b53c2e446eb33339e6188bf7e4339520d9df"
@@ -255,7 +255,7 @@ vk_report(textvk)
 
 
 /*
-	Функции
+	Р¤СѓРЅРєС†РёРё
 */
 
 AScreen()
@@ -269,7 +269,7 @@ AScreen()
 playLecture(index)
 {
 	IfNotExist, %A_ScriptDir%\BankHelper\server\lectures\%index%.txt
-		return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Лекция №" index " не существует.")
+		return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р›РµРєС†РёСЏ в„–" index " РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.")
 	
 	sleep, 250
 	
@@ -296,89 +296,89 @@ playLecture(index)
 
 sobesSystem()
 {
-	sendChat("/todo Здравствуйте меня зовут «" name " " firstname "»*на груди весит бейджик «" rang "»")
+	sendChat("/todo Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ РјРµРЅСЏ Р·РѕРІСѓС‚ В«" name " " firstname "В»*РЅР° РіСЂСѓРґРё РІРµСЃРёС‚ Р±РµР№РґР¶РёРє В«" rang "В»")
 	sleep, 2000
-	sendChat("Вы пришли к нам на собеседование?")
+	sendChat("Р’С‹ РїСЂРёС€Р»Рё Рє РЅР°Рј РЅР° СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ?")
 	sleep, 1000
-	addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Нажмите: 1 - продолжить, 2 - закончить")
+	addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РќР°Р¶РјРёС‚Рµ: 1 - РїСЂРѕРґРѕР»Р¶РёС‚СЊ, 2 - Р·Р°РєРѕРЅС‡РёС‚СЊ")
 	while (!GetKeyState("1", "P") && !GetKeyState("2", "P"))
         continue
 	if (GetKeyState("1", "P"))
 	{
-		sendChat("Отлично, покажите мне Ваши документы, а именно паспорт, лицензии и мед.карта.")
+		sendChat("РћС‚Р»РёС‡РЅРѕ, РїРѕРєР°Р¶РёС‚Рµ РјРЅРµ Р’Р°С€Рё РґРѕРєСѓРјРµРЅС‚С‹, Р° РёРјРµРЅРЅРѕ РїР°СЃРїРѕСЂС‚, Р»РёС†РµРЅР·РёРё Рё РјРµРґ.РєР°СЂС‚Р°.")
 		sleep, 2000
-		sendChat("/b /showpass - паспорт, /showlic - лицензии, /showmc - мед.карта, отыгрывая РП.")
+		sendChat("/b /showpass - РїР°СЃРїРѕСЂС‚, /showlic - Р»РёС†РµРЅР·РёРё, /showmc - РјРµРґ.РєР°СЂС‚Р°, РѕС‚С‹РіСЂС‹РІР°СЏ Р Рџ.")
 		sleep, 1000
-		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Нажмите: 1 - продолжить, 2 - закончить")
+		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РќР°Р¶РјРёС‚Рµ: 1 - РїСЂРѕРґРѕР»Р¶РёС‚СЊ, 2 - Р·Р°РєРѕРЅС‡РёС‚СЊ")
 		while (!GetKeyState("1", "P") && !GetKeyState("2", "P"))
 			continue
 		if (GetKeyState("1", "P"))
 		{
-			sendChat("/me взял" plrSex[1] " документы.")
+			sendChat("/me РІР·СЏР»" plrSex[1] " РґРѕРєСѓРјРµРЅС‚С‹.")
 			sleep, 2000
-			sendChat("/do Документы в руках.")
+			sendChat("/do Р”РѕРєСѓРјРµРЅС‚С‹ РІ СЂСѓРєР°С….")
 			sleep, 2000
-			sendChat("/me проверив документы, передал" plrSex[1] " человеку напротив.")
+			sendChat("/me РїСЂРѕРІРµСЂРёРІ РґРѕРєСѓРјРµРЅС‚С‹, РїРµСЂРµРґР°Р»" plrSex[1] " С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 			sleep, 1000
-			addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Нажмите: 1 - продолжить, 2 - закончить")
+			addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РќР°Р¶РјРёС‚Рµ: 1 - РїСЂРѕРґРѕР»Р¶РёС‚СЊ, 2 - Р·Р°РєРѕРЅС‡РёС‚СЊ")
 			while (!GetKeyState("1", "P") && !GetKeyState("2", "P"))
 				continue
 			if (GetKeyState("1", "P"))
 			{
-				sendChat("Проверим ваши навыки владения дубинкой.")
+				sendChat("РџСЂРѕРІРµСЂРёРј РІР°С€Рё РЅР°РІС‹РєРё РІР»Р°РґРµРЅРёСЏ РґСѓР±РёРЅРєРѕР№.")
 				sleep, 2000
-				sendChat("/do Дубинка на столе.")
+				sendChat("/do Р”СѓР±РёРЅРєР° РЅР° СЃС‚РѕР»Рµ.")
 				sleep, 2000
-				sendChat("/me взяв дубинку со стола передал" plrSex[1] " ее человеку напротив.")
+				sendChat("/me РІР·СЏРІ РґСѓР±РёРЅРєСѓ СЃРѕ СЃС‚РѕР»Р° РїРµСЂРµРґР°Р»" plrSex[1] " РµРµ С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 				sleep, 2000
-				sendChat("Теперь передайте ее мне.")
+				sendChat("РўРµРїРµСЂСЊ РїРµСЂРµРґР°Р№С‚Рµ РµРµ РјРЅРµ.")
 				sleep, 1000
-				addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Нажмите: 1 - продолжить, 2 - закончить")
+				addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РќР°Р¶РјРёС‚Рµ: 1 - РїСЂРѕРґРѕР»Р¶РёС‚СЊ, 2 - Р·Р°РєРѕРЅС‡РёС‚СЊ")
 				while (!GetKeyState("1", "P") && !GetKeyState("2", "P"))
 					continue
 				if (GetKeyState("1", "P"))
 				{
-					sendChat("Отлично.")
+					sendChat("РћС‚Р»РёС‡РЅРѕ.")
 					sleep, 2000
-					sendChat("/me взял" plrSex[1] " дубинку у человека напротив, после чего положил" plrSex[1] " ее на стол.")
+					sendChat("/me РІР·СЏР»" plrSex[1] " РґСѓР±РёРЅРєСѓ Сѓ С‡РµР»РѕРІРµРєР° РЅР°РїСЂРѕС‚РёРІ, РїРѕСЃР»Рµ С‡РµРіРѕ РїРѕР»РѕР¶РёР»" plrSex[1] " РµРµ РЅР° СЃС‚РѕР».")
 					sleep, 2000
-					sendChat("/do Дубинка на столе.")
+					sendChat("/do Р”СѓР±РёРЅРєР° РЅР° СЃС‚РѕР»Рµ.")
 					sleep, 2000
-					sendChat("Перейдем к физ-культурным нормативам.")
+					sendChat("РџРµСЂРµР№РґРµРј Рє С„РёР·-РєСѓР»СЊС‚СѓСЂРЅС‹Рј РЅРѕСЂРјР°С‚РёРІР°Рј.")
 					sleep, 2000
-					sendChat("Присядьте 5 раз и пробегите с этого места до конца зала.")
+					sendChat("РџСЂРёСЃСЏРґСЊС‚Рµ 5 СЂР°Р· Рё РїСЂРѕР±РµРіРёС‚Рµ СЃ СЌС‚РѕРіРѕ РјРµСЃС‚Р° РґРѕ РєРѕРЅС†Р° Р·Р°Р»Р°.")
 					sleep, 1000
-					addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Нажмите: 1 - принять, 2 - отказать")
+					addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РќР°Р¶РјРёС‚Рµ: 1 - РїСЂРёРЅСЏС‚СЊ, 2 - РѕС‚РєР°Р·Р°С‚СЊ")
 					while (!GetKeyState("1", "P") && !GetKeyState("2", "P"))
 						continue
 					if (GetKeyState("1", "P"))
 					{
-						sendChat("/todo Отлично..*расставляя галочки")
+						sendChat("/todo РћС‚Р»РёС‡РЅРѕ..*СЂР°СЃСЃС‚Р°РІР»СЏСЏ РіР°Р»РѕС‡РєРё")
 						sleep, 2000
-						sendChat("Вы приняты на стажировку.")
+						sendChat("Р’С‹ РїСЂРёРЅСЏС‚С‹ РЅР° СЃС‚Р°Р¶РёСЂРѕРІРєСѓ.")
 						sleep, 2000
-						sendChat("/do Под столом лежит пакет с формой и рацией.")
+						sendChat("/do РџРѕРґ СЃС‚РѕР»РѕРј Р»РµР¶РёС‚ РїР°РєРµС‚ СЃ С„РѕСЂРјРѕР№ Рё СЂР°С†РёРµР№.")
 						sleep, 2000
-						sendChat("/me достал" plrSex[1] " пакет и передал" plrSex[1] " человеку напротив")
+						sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " РїР°РєРµС‚ Рё РїРµСЂРµРґР°Р»" plrSex[1] " С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ")
 						return
 					}
 					if (GetKeyState("2", "P"))
 					{
-						sendChat("Отказ. По причине: проф. непригодность.")
+						sendChat("РћС‚РєР°Р·. РџРѕ РїСЂРёС‡РёРЅРµ: РїСЂРѕС„. РЅРµРїСЂРёРіРѕРґРЅРѕСЃС‚СЊ.")
 						return
 					}
 				}
 				if (GetKeyState("2", "P"))
-					return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Вы закончили собеседование.")
+					return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р’С‹ Р·Р°РєРѕРЅС‡РёР»Рё СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ.")
 			}
 			if (GetKeyState("2", "P"))
-				return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Вы закончили собеседование.")
+				return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р’С‹ Р·Р°РєРѕРЅС‡РёР»Рё СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ.")
 		}
 		if (GetKeyState("2", "P"))
-			return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Вы закончили собеседование.")
+			return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р’С‹ Р·Р°РєРѕРЅС‡РёР»Рё СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ.")
 	}
 	if (GetKeyState("2", "P"))
-		return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Вы закончили собеседование.")
+		return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р’С‹ Р·Р°РєРѕРЅС‡РёР»Рё СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ.")
 }
 
 getPost()
@@ -401,13 +401,13 @@ getPost()
 		return 8
 	else
 	{
-		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Займите пожалуйста пост.")
+		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р—Р°Р№РјРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕСЃС‚.")
 		return -1 
 	}
 }
 
 /*
-	Команды
+	РљРѕРјР°РЅРґС‹
 */
 
 Binder_clearchat()
@@ -419,9 +419,9 @@ Binder_clearchat()
 
 Binder_welcome()
 {
-	sendChat("/todo Здравствуйте меня зовут «" name " " firstname "»*на груди весит бейджик «" rang "»")
+	sendChat("/todo Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ РјРµРЅСЏ Р·РѕРІСѓС‚ В«" name " " firstname "В»*РЅР° РіСЂСѓРґРё РІРµСЃРёС‚ Р±РµР№РґР¶РёРє В«" rang "В»")
 	sleep, 1500
-	sendChat("Чем могу быть любезен" plrSex[1] "?")
+	sendChat("Р§РµРј РјРѕРіСѓ Р±С‹С‚СЊ Р»СЋР±РµР·РµРЅ" plrSex[1] "?")
 	return
 }
 
@@ -433,7 +433,7 @@ Binder_menu()
 
 Binder_Exit()
 {
-	addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Хелпер успешно завершен. Чтобы запустить перезайдите в игру.")
+	addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РҐРµР»РїРµСЂ СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РµРЅ. Р§С‚РѕР±С‹ Р·Р°РїСѓСЃС‚РёС‚СЊ РїРµСЂРµР·Р°Р№РґРёС‚Рµ РІ РёРіСЂСѓ.")
 	ExitApp
 }
 
@@ -442,9 +442,9 @@ Binder_expel(id)
 	if (id >= 0 and id < SAMP_MAX_PLAYERS)
 	{
 		sleep, 3000
-		sendChat("/me накидывается на нарушителя и пытается заломать ему руки.")
+		sendChat("/me РЅР°РєРёРґС‹РІР°РµС‚СЃСЏ РЅР° РЅР°СЂСѓС€РёС‚РµР»СЏ Рё РїС‹С‚Р°РµС‚СЃСЏ Р·Р°Р»РѕРјР°С‚СЊ РµРјСѓ СЂСѓРєРё.")
 		sleep, 3000
-		sendChat("/me крепко держа нарушителя за руки, выводит его на улицу.")
+		sendChat("/me РєСЂРµРїРєРѕ РґРµСЂР¶Р° РЅР°СЂСѓС€РёС‚РµР»СЏ Р·Р° СЂСѓРєРё, РІС‹РІРѕРґРёС‚ РµРіРѕ РЅР° СѓР»РёС†Сѓ.")
 	}
 	return
 }
@@ -457,7 +457,7 @@ Binder_lecture(index)
 	}
 	else
 	{
-		return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Команда должна быть вида: /lecture [1-5]")
+		return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РљРѕРјР°РЅРґР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РІРёРґР°: /lecture [1-5]")
 	}
 }
 
@@ -483,7 +483,7 @@ Binder_rule(index)
 	}
 	else
 	{
-		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Команда должна быть вида: /rule [номер]")
+		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РљРѕРјР°РЅРґР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РІРёРґР°: /rule [РЅРѕРјРµСЂ]")
 	}
 	return
 }
@@ -494,11 +494,11 @@ Binder_radio(words*)
 		String .= Words[A_Index] " "
 	if (String > 0)
 	{
-		sendChat("/do Cообщил" plrSex[1] " что-то по рации.")
+		sendChat("/do CРѕРѕР±С‰РёР»" plrSex[1] " С‡С‚Рѕ-С‚Рѕ РїРѕ СЂР°С†РёРё.")
 		sleep 2000
-		sendChat("/me повесил" plrSex[1] " рацию на пояс.")
+		sendChat("/me РїРѕРІРµСЃРёР»" plrSex[1] " СЂР°С†РёСЋ РЅР° РїРѕСЏСЃ.")
 		sleep 1600
-		sendChat("/do Рация на поясе.")
+		sendChat("/do Р Р°С†РёСЏ РЅР° РїРѕСЏСЃРµ.")
 	}
 	return
 }
@@ -509,8 +509,8 @@ Binder_bug(words*)
 		String .= words[A_Index] " "
 	if (String > 0)
 	{
-		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Вы отправили сообщение об ошибке разработчикам.")
-		vk_report("[Bank Helper] [" getUsername() " (" rang ")]:%0A• " String "%0A%0A@dmitriy_hawk, @kplr452b")
+		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р’С‹ РѕС‚РїСЂР°РІРёР»Рё СЃРѕРѕР±С‰РµРЅРёРµ РѕР± РѕС€РёР±РєРµ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєР°Рј.")
+		vk_report("[Bank Helper] [" getUsername() " (" rang ")]:%0AвЂў " String "%0A%0A@dmitriy_hawk, @kplr452b")
 	}
 	return
 }
@@ -518,66 +518,66 @@ Binder_bug(words*)
 Binder_leaders()
 {
 	Sleep 2000
-	sendChat("/me открыл" plrSex[1] " книгу.")
+	sendChat("/me РѕС‚РєСЂС‹Р»" plrSex[1] " РєРЅРёРіСѓ.")
     Sleep 2000
-    SendChat("/do Книга открыта.")
+    SendChat("/do РљРЅРёРіР° РѕС‚РєСЂС‹С‚Р°.")
     Sleep 2000
-    SendChat("/me начал" plrSex[1] " смотреть список всех Глав.")
+    SendChat("/me РЅР°С‡Р°Р»" plrSex[1] " СЃРјРѕС‚СЂРµС‚СЊ СЃРїРёСЃРѕРє РІСЃРµС… Р“Р»Р°РІ.")
     Sleep 5000
-    SendChat("/todo Хм..*закрывая книгу")
+    SendChat("/todo РҐРј..*Р·Р°РєСЂС‹РІР°СЏ РєРЅРёРіСѓ")
 	return
 }
 
 Binder_zams()
 {
 	Sleep 2000
-	sendChat("/me открыл" plrSex[1] " книгу.")
+	sendChat("/me РѕС‚РєСЂС‹Р»" plrSex[1] " РєРЅРёРіСѓ.")
     Sleep 2000
-    sendChat("/do Книга открыта.")
+    sendChat("/do РљРЅРёРіР° РѕС‚РєСЂС‹С‚Р°.")
     Sleep 2000
-    sendChat("/me начал" plrSex[1] " смотреть список всех заместителей Глав.")
+    sendChat("/me РЅР°С‡Р°Р»" plrSex[1] " СЃРјРѕС‚СЂРµС‚СЊ СЃРїРёСЃРѕРє РІСЃРµС… Р·Р°РјРµСЃС‚РёС‚РµР»РµР№ Р“Р»Р°РІ.")
     Sleep 5000
-    sendChat("/todo Хм..*закрывая книгу")
+    sendChat("/todo РҐРј..*Р·Р°РєСЂС‹РІР°СЏ РєРЅРёРіСѓ")
 	return
 }
 
 Binder_armour()
 {
 	Sleep 2000
-    sendChat("/do " name " " firstname " держит бронижилет в руках.")
+    sendChat("/do " name " " firstname " РґРµСЂР¶РёС‚ Р±СЂРѕРЅРёР¶РёР»РµС‚ РІ СЂСѓРєР°С….")
     Sleep 2000
-    sendChat("/me надел" plrSex[1] " на себя бронижилет.")
+    sendChat("/me РЅР°РґРµР»" plrSex[1] " РЅР° СЃРµР±СЏ Р±СЂРѕРЅРёР¶РёР»РµС‚.")
 	return
 }
 
 Binder_mask()
 {
 	Sleep 2000
-    sendChat("/do Маска лежит в рюкзаке.")
+    sendChat("/do РњР°СЃРєР° Р»РµР¶РёС‚ РІ СЂСЋРєР·Р°РєРµ.")
     Sleep 2000
-    sendChat("/me достал" plrSex[1] " маску из рюкзака и надел" plrSex[1] " её на себя.")
+    sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " РјР°СЃРєСѓ РёР· СЂСЋРєР·Р°РєР° Рё РЅР°РґРµР»" plrSex[1] " РµС‘ РЅР° СЃРµР±СЏ.")
     Sleep 2000
-    sendChat("/do Маска надета.")
+    sendChat("/do РњР°СЃРєР° РЅР°РґРµС‚Р°.")
 	return
 }
 
 Binder_gps()
 {
     Sleep 2000
-    sendChat("/do В левом кармане лежит навигатор.")
+    sendChat("/do Р’ Р»РµРІРѕРј РєР°СЂРјР°РЅРµ Р»РµР¶РёС‚ РЅР°РІРёРіР°С‚РѕСЂ.")
     Sleep 2000
-    sendChat("/me достал" plrSex[1] " навигатор из левого кармана.")
+    sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " РЅР°РІРёРіР°С‚РѕСЂ РёР· Р»РµРІРѕРіРѕ РєР°СЂРјР°РЅР°.")
     Sleep 2000
-    sendChat("/do Навигатор в руках.")
+    sendChat("/do РќР°РІРёРіР°С‚РѕСЂ РІ СЂСѓРєР°С….")
 	return
 }
 
 Binder_dropgun()
 {
     Sleep 2000
-    SendChat("/me положил" plrSex[1] " оружие на землю.")
+    SendChat("/me РїРѕР»РѕР¶РёР»" plrSex[1] " РѕСЂСѓР¶РёРµ РЅР° Р·РµРјР»СЋ.")
     Sleep 2000
-    SendChat("/do Оружие находится на земле.")
+    SendChat("/do РћСЂСѓР¶РёРµ РЅР°С…РѕРґРёС‚СЃСЏ РЅР° Р·РµРјР»Рµ.")
 	return
 }
 
@@ -586,9 +586,9 @@ Binder_unfwarn(id)
 	if (id >= 0 and id < SAMP_MAX_PLAYERS)
 	{
 		Sleep 2000
-		sendChat("/me достал" plrSex[1] " трудовую книжку сотрудника.")
+		sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " С‚СЂСѓРґРѕРІСѓСЋ РєРЅРёР¶РєСѓ СЃРѕС‚СЂСѓРґРЅРёРєР°.")
 		Sleep 2000
-		sendChat("/do Снял" plrSex[1] " выговор сотруднику из трудовой книжки.")
+		sendChat("/do РЎРЅСЏР»" plrSex[1] " РІС‹РіРѕРІРѕСЂ СЃРѕС‚СЂСѓРґРЅРёРєСѓ РёР· С‚СЂСѓРґРѕРІРѕР№ РєРЅРёР¶РєРё.")
 	}
 	return
 }
@@ -598,11 +598,11 @@ Binder_funmute(id)
 	if (id >= 0 and id < SAMP_MAX_PLAYERS)
 	{
 		Sleep 2000
-		sendChat("/me открыл" plrSex[1] " КПК.")
+		sendChat("/me РѕС‚РєСЂС‹Р»" plrSex[1] " РљРџРљ.")
 		Sleep 2000
-		sendChat("/do КПК открыт.")
+		sendChat("/do РљРџРљ РѕС‚РєСЂС‹С‚.")
 		Sleep 2000
-		sendChat("/me включил" plrSex[1] " канал рации организации сотруднику.")
+		sendChat("/me РІРєР»СЋС‡РёР»" plrSex[1] " РєР°РЅР°Р» СЂР°С†РёРё РѕСЂРіР°РЅРёР·Р°С†РёРё СЃРѕС‚СЂСѓРґРЅРёРєСѓ.")
 	}
 	return
 }
@@ -612,11 +612,11 @@ Binder_unblacklist(id)
 	if (id >= 0 and id < SAMP_MAX_PLAYERS)
 	{
 		Sleep 2000
-		sendChat("/me открыл" plrSex[1] " КПК.")
+		sendChat("/me РѕС‚РєСЂС‹Р»" plrSex[1] " РљРџРљ.")
 		Sleep 2000
-		sendChat("/do КПК открыт.")
+		sendChat("/do РљРџРљ РѕС‚РєСЂС‹С‚.")
 		Sleep 2000
-		sendChat("/me вынес" plrSex[2] " гражданина из чёрного списка организации.")
+		sendChat("/me РІС‹РЅРµСЃ" plrSex[2] " РіСЂР°Р¶РґР°РЅРёРЅР° РёР· С‡С‘СЂРЅРѕРіРѕ СЃРїРёСЃРєР° РѕСЂРіР°РЅРёР·Р°С†РёРё.")
 	}
 	return
 }
@@ -628,11 +628,11 @@ Binder_uninvite(id, words*)
 	if (id >= 0 and id < SAMP_MAX_PLAYERS and String > 0)
 	{
 		Sleep 2000
-		sendChat("/me открыл" plrSex[1] " КПК.")
+		sendChat("/me РѕС‚РєСЂС‹Р»" plrSex[1] " РљРџРљ.")
 		Sleep 2000
-		sendChat("/do КПК открыт.")
+		sendChat("/do РљРџРљ РѕС‚РєСЂС‹С‚.")
 		Sleep 2000
-		sendChat("/me удалил" plrSex[1] " данные о сотруднике.")
+		sendChat("/me СѓРґР°Р»РёР»" plrSex[1] " РґР°РЅРЅС‹Рµ Рѕ СЃРѕС‚СЂСѓРґРЅРёРєРµ.")
 	}
 	return
 }
@@ -644,9 +644,9 @@ Binder_fwarn(id, words*)
 	if (id >= 0 and id < SAMP_MAX_PLAYERS and String > 0)
 	{
 		Sleep 2000
-		sendChat("/me достал" plrSex[1] " трудовую книжку сотрудника.")
+		sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " С‚СЂСѓРґРѕРІСѓСЋ РєРЅРёР¶РєСѓ СЃРѕС‚СЂСѓРґРЅРёРєР°.")
 		Sleep 2000
-		sendChat("/do Занес" plrSex[2] " в трудовую книжку выговор.")
+		sendChat("/do Р—Р°РЅРµСЃ" plrSex[2] " РІ С‚СЂСѓРґРѕРІСѓСЋ РєРЅРёР¶РєСѓ РІС‹РіРѕРІРѕСЂ.")
 	}
 	return
 }
@@ -658,11 +658,11 @@ Binder_fmute(id, words*)
 	if (id >= 0 and id < SAMP_MAX_PLAYERS and String > 0)
 	{
 		Sleep 2000
-		sendChat("/me открыл" plrSex[1] " КПК.")
+		sendChat("/me РѕС‚РєСЂС‹Р»" plrSex[1] " РљРџРљ.")
 		Sleep 2000
-		sendChat("/do КПК открыт.")
+		sendChat("/do РљРџРљ РѕС‚РєСЂС‹С‚.")
 		Sleep 2000
-		sendChat("/me отключил" plrSex[1] " канал рации сотрудника.")
+		sendChat("/me РѕС‚РєР»СЋС‡РёР»" plrSex[1] " РєР°РЅР°Р» СЂР°С†РёРё СЃРѕС‚СЂСѓРґРЅРёРєР°.")
 	}
 	return
 }
@@ -674,11 +674,11 @@ Binder_blacklist(id, words*)
 	if (id >= 0 and id < SAMP_MAX_PLAYERS and String > 0)
 	{
 		Sleep 2000
-		sendChat("/me открыл" plrSex[1] " КПК.")
+		sendChat("/me РѕС‚РєСЂС‹Р»" plrSex[1] " РљРџРљ.")
 		Sleep 2000
-		sendChat("/do КПК открыт.")
+		sendChat("/do РљРџРљ РѕС‚РєСЂС‹С‚.")
 		Sleep 2000
-		sendChat("/me занес" plrSex[2] " в чёрный список организации гражданина.")
+		sendChat("/me Р·Р°РЅРµСЃ" plrSex[2] " РІ С‡С‘СЂРЅС‹Р№ СЃРїРёСЃРѕРє РѕСЂРіР°РЅРёР·Р°С†РёРё РіСЂР°Р¶РґР°РЅРёРЅР°.")
 	}
 	return
 }
@@ -688,7 +688,7 @@ Binder_post()
 	if (getPost() > 0)
 	{
 		sleep 1500
-		sendChat("/r [" tag "]: Докладывает " name " " firstname " | Пост: " getPost() " | Состояние: стабильное")
+		sendChat("/r [" tag "]: Р”РѕРєР»Р°РґС‹РІР°РµС‚ " name " " firstname " | РџРѕСЃС‚: " getPost() " | РЎРѕСЃС‚РѕСЏРЅРёРµ: СЃС‚Р°Р±РёР»СЊРЅРѕРµ")
 		if (autoscreen)
 			AScreen()
 	}
@@ -701,35 +701,35 @@ Binder_docs(index)
 	{
 		if (index == 1)
 		{
-			sendChat("/me взял" plrSex[1] " паспорт.")
+			sendChat("/me РІР·СЏР»" plrSex[1] " РїР°СЃРїРѕСЂС‚.")
 			sleep, 2000
-			sendChat("/do Паспорт в руках.")
+			sendChat("/do РџР°СЃРїРѕСЂС‚ РІ СЂСѓРєР°С….")
 			sleep, 2000
-			sendChat("/me проверив документы, передал" plrSex[1] " человеку напротив.")
+			sendChat("/me РїСЂРѕРІРµСЂРёРІ РґРѕРєСѓРјРµРЅС‚С‹, РїРµСЂРµРґР°Р»" plrSex[1] " С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 			return
 		}
 		if (index == 2)
 		{
-			sendChat("/me взял" plrSex[1] " мед.карту.")
+			sendChat("/me РІР·СЏР»" plrSex[1] " РјРµРґ.РєР°СЂС‚Сѓ.")
 			sleep, 2000
-			sendChat("/do Мед.карта в руках.")
+			sendChat("/do РњРµРґ.РєР°СЂС‚Р° РІ СЂСѓРєР°С….")
 			sleep, 2000
-			sendChat("/me проверив документы, передал" plrSex[1] " человеку напротив.")
+			sendChat("/me РїСЂРѕРІРµСЂРёРІ РґРѕРєСѓРјРµРЅС‚С‹, РїРµСЂРµРґР°Р»" plrSex[1] " С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 			return
 		}
 		if (index == 3)
 		{
-			sendChat("/me взял" plrSex[1] " лицензии.")
+			sendChat("/me РІР·СЏР»" plrSex[1] " Р»РёС†РµРЅР·РёРё.")
 			sleep, 2000
-			sendChat("/do Лицензии в руках.")
+			sendChat("/do Р›РёС†РµРЅР·РёРё РІ СЂСѓРєР°С….")
 			sleep, 2000
-			sendChat("/me проверив документы, передал" plrSex[1] " человеку напротив.")
+			sendChat("/me РїСЂРѕРІРµСЂРёРІ РґРѕРєСѓРјРµРЅС‚С‹, РїРµСЂРµРґР°Р»" plrSex[1] " С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 			return
 		}
 	}
 	else
 	{
-		return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Команда должна быть вида: /docs [1-3]")
+		return addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РљРѕРјР°РЅРґР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РІРёРґР°: /docs [1-3]")
 	}
 }
 
@@ -738,11 +738,11 @@ Binder_showpass(id)
 	if (id >= 0)
 	{
 		sleep 1600
-		sendChat("/me достал" plrSex[1] " паспорт из кармана.")
+		sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " РїР°СЃРїРѕСЂС‚ РёР· РєР°СЂРјР°РЅР°.")
 		sleep 1600
-		sendChat("/do " name " " firstname " держит паспорт в руке.")
+		sendChat("/do " name " " firstname " РґРµСЂР¶РёС‚ РїР°СЃРїРѕСЂС‚ РІ СЂСѓРєРµ.")
 		sleep 1600
-		sendChat("/me показал" plrSex[1] " паспорт человеку напротив.")
+		sendChat("/me РїРѕРєР°Р·Р°Р»" plrSex[1] " РїР°СЃРїРѕСЂС‚ С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 	}
 	return
 }
@@ -752,11 +752,11 @@ Binder_showmc(id)
 	if (id >= 0)
 	{
 		sleep 1600
-		sendChat("/me достал" plrSex[1] " мед.карту из кармана.")
+		sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " РјРµРґ.РєР°СЂС‚Сѓ РёР· РєР°СЂРјР°РЅР°.")
 		sleep 1600
-		sendChat("/do " name " " firstname " держит мед.карту в руке.")
+		sendChat("/do " name " " firstname " РґРµСЂР¶РёС‚ РјРµРґ.РєР°СЂС‚Сѓ РІ СЂСѓРєРµ.")
 		sleep 1600
-		sendChat("/me показал" plrSex[1] " мед.карту человеку напротив.")
+		sendChat("/me РїРѕРєР°Р·Р°Р»" plrSex[1] " РјРµРґ.РєР°СЂС‚Сѓ С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 	}
 	return
 }
@@ -766,18 +766,18 @@ Binder_showlic(id)
 	if (id >= 0)
 	{
 		sleep 1600
-		sendChat("/me достал" plrSex[1] " лицензии из кармана.")
+		sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " Р»РёС†РµРЅР·РёРё РёР· РєР°СЂРјР°РЅР°.")
 		sleep 1600
-		sendChat("/do " name " " firstname " держит лицензии в руке.")
+		sendChat("/do " name " " firstname " РґРµСЂР¶РёС‚ Р»РёС†РµРЅР·РёРё РІ СЂСѓРєРµ.")
 		sleep 1600
-		sendChat("/me показал" plrSex[1] "лицензии человеку напротив.")
+		sendChat("/me РїРѕРєР°Р·Р°Р»" plrSex[1] "Р»РёС†РµРЅР·РёРё С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 	}
 	return
 }
 
 
 /*
-	Хоткеи
+	РҐРѕС‚РєРµРё
 */
 
 Active1:
@@ -792,7 +792,7 @@ Active2:
 {
 	if (BlockInChat and isInChat())
 		return
-	sendChat("/todo Прошу вас вести себя аккуратно или я вас выгоню из банка*снимая дубинку")
+	sendChat("/todo РџСЂРѕС€Сѓ РІР°СЃ РІРµСЃС‚Рё СЃРµР±СЏ Р°РєРєСѓСЂР°С‚РЅРѕ РёР»Рё СЏ РІР°СЃ РІС‹РіРѕРЅСЋ РёР· Р±Р°РЅРєР°*СЃРЅРёРјР°СЏ РґСѓР±РёРЅРєСѓ")
 	return
 }
 
@@ -872,26 +872,26 @@ Active12:
 {
 	if (BlockInChat and isInChat())
 		return
-	sendChat("/me взял" plrSex[1] " паспорт.")
+	sendChat("/me РІР·СЏР»" plrSex[1] " РїР°СЃРїРѕСЂС‚.")
 	sleep 1500
-	sendChat("/do Паспорт в руках.")
+	sendChat("/do РџР°СЃРїРѕСЂС‚ РІ СЂСѓРєР°С….")
 	sleep 1500
-	sendChat("/me открыл" plrSex[1] " базу данных ЦБ.")
+	sendChat("/me РѕС‚РєСЂС‹Р»" plrSex[1] " Р±Р°Р·Сѓ РґР°РЅРЅС‹С… Р¦Р‘.")
 	sleep 1500
-	sendChat("/me открыл" plrSex[1] " профиль гражданина и вписал" plrSex[1] " данные.")
+	sendChat("/me РѕС‚РєСЂС‹Р»" plrSex[1] " РїСЂРѕС„РёР»СЊ РіСЂР°Р¶РґР°РЅРёРЅР° Рё РІРїРёСЃР°Р»" plrSex[1] " РґР°РЅРЅС‹Рµ.")
 	sleep 1500
-	sendChat("/do Данные вписаны.")
+	sendChat("/do Р”Р°РЅРЅС‹Рµ РІРїРёСЃР°РЅС‹.")
 	sleep 1500
-	sendChat("/me взял" plrSex[1] " печать ""ЦБ"".")
+	sendChat("/me РІР·СЏР»" plrSex[1] " РїРµС‡Р°С‚СЊ ""Р¦Р‘"".")
 	sleep 1500
-	sendChat("/do Печать ""ЦБ"" в руках.")
+	sendChat("/do РџРµС‡Р°С‚СЊ ""Р¦Р‘"" РІ СЂСѓРєР°С….")
 	sleep 1500
-	sendChat("/me поставил" plrSex[1] " печать ""ЦБ"".")
+	sendChat("/me РїРѕСЃС‚Р°РІРёР»" plrSex[1] " РїРµС‡Р°С‚СЊ ""Р¦Р‘"".")
 	return
 }
 
 /*
-	События диалога
+	РЎРѕР±С‹С‚РёСЏ РґРёР°Р»РѕРіР°
 */
 dialogListMenu(index)
 {
@@ -913,7 +913,7 @@ dialogListMenu(index)
 			patchRadio()
 			playAudioStream(url)
 			unPatchRadio()
-			addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Онлайн 'Radio Energy' было включено.")
+			addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РћРЅР»Р°Р№РЅ 'Radio Energy' Р±С‹Р»Рѕ РІРєР»СЋС‡РµРЅРѕ.")
 			radioOn = 1
 		}
 		else
@@ -921,7 +921,7 @@ dialogListMenu(index)
 			patchRadio()
 			stopAudioStream()
 			unPatchRadio()
-			addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Онлайн 'Radio Energy' было выключено.")
+			addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РћРЅР»Р°Р№РЅ 'Radio Energy' Р±С‹Р»Рѕ РІС‹РєР»СЋС‡РµРЅРѕ.")
 			radioOn = 0
 		}			
 	}
@@ -932,16 +932,16 @@ dialogListSobes(index)
 {
 	if (index == 1)
 	{
-		sendChat("/todo Здравствуйте меня зовут «" name " " firstname "»*на груди весит бейджик «" rang "»")
+		sendChat("/todo Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ РјРµРЅСЏ Р·РѕРІСѓС‚ В«" name " " firstname "В»*РЅР° РіСЂСѓРґРё РІРµСЃРёС‚ Р±РµР№РґР¶РёРє В«" rang "В»")
 		sleep, 2000
-		sendChat("Вы пришли к нам на собеседование?")
+		sendChat("Р’С‹ РїСЂРёС€Р»Рё Рє РЅР°Рј РЅР° СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ?")
 		return
 	}
 	if (index == 2)
 	{
-		sendChat("Отлично, покажите мне Ваши документы, а именно паспорт, лицензии и мед.карта.")
+		sendChat("РћС‚Р»РёС‡РЅРѕ, РїРѕРєР°Р¶РёС‚Рµ РјРЅРµ Р’Р°С€Рё РґРѕРєСѓРјРµРЅС‚С‹, Р° РёРјРµРЅРЅРѕ РїР°СЃРїРѕСЂС‚, Р»РёС†РµРЅР·РёРё Рё РјРµРґ.РєР°СЂС‚Р°.")
 		sleep, 2000
-		sendChat("/b /showpass - паспорт, /showlic - лицензии , /showmc - мед.карта, отыгрывая РП.")
+		sendChat("/b /showpass - РїР°СЃРїРѕСЂС‚, /showlic - Р»РёС†РµРЅР·РёРё , /showmc - РјРµРґ.РєР°СЂС‚Р°, РѕС‚С‹РіСЂС‹РІР°СЏ Р Рџ.")
 	}
 	if (index == 3)
 		Binder_docs(1)
@@ -951,42 +951,42 @@ dialogListSobes(index)
 		Binder_docs(2)
 	if (index == 6)
 	{
-		sendChat("Проверим ваши навыки владения дубинкой.")
+		sendChat("РџСЂРѕРІРµСЂРёРј РІР°С€Рё РЅР°РІС‹РєРё РІР»Р°РґРµРЅРёСЏ РґСѓР±РёРЅРєРѕР№.")
 		sleep, 2000
-		sendChat("/do Дубинка на столе.")
+		sendChat("/do Р”СѓР±РёРЅРєР° РЅР° СЃС‚РѕР»Рµ.")
 		sleep, 2000
-		sendChat("/me взяв дубинку со стола передал" plrSex[1] " ее человеку напротив.")
+		sendChat("/me РІР·СЏРІ РґСѓР±РёРЅРєСѓ СЃРѕ СЃС‚РѕР»Р° РїРµСЂРµРґР°Р»" plrSex[1] " РµРµ С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 		sleep, 2000
-		sendChat("Теперь передайте ее мне.")
+		sendChat("РўРµРїРµСЂСЊ РїРµСЂРµРґР°Р№С‚Рµ РµРµ РјРЅРµ.")
 	}
 	if (index == 7)
 	{
-		sendChat("Отлично.")
+		sendChat("РћС‚Р»РёС‡РЅРѕ.")
 		sleep, 2000
-		sendChat("/me взял" plrSex[1] " дубинку у человека напротив, после чего положил" plrSex[1] " ее на стол.")
+		sendChat("/me РІР·СЏР»" plrSex[1] " РґСѓР±РёРЅРєСѓ Сѓ С‡РµР»РѕРІРµРєР° РЅР°РїСЂРѕС‚РёРІ, РїРѕСЃР»Рµ С‡РµРіРѕ РїРѕР»РѕР¶РёР»" plrSex[1] " РµРµ РЅР° СЃС‚РѕР».")
 		sleep, 2000
-		sendChat("/do Дубинка на столе.")
+		sendChat("/do Р”СѓР±РёРЅРєР° РЅР° СЃС‚РѕР»Рµ.")
 	}
 	if (index == 8)
 	{
-		sendChat("Перейдем к физ-культурным нормативам.")
+		sendChat("РџРµСЂРµР№РґРµРј Рє С„РёР·-РєСѓР»СЊС‚СѓСЂРЅС‹Рј РЅРѕСЂРјР°С‚РёРІР°Рј.")
 		sleep, 2000
-		sendChat("Присядьте 5 раз и пробегите с этого места до конца зала.")
+		sendChat("РџСЂРёСЃСЏРґСЊС‚Рµ 5 СЂР°Р· Рё РїСЂРѕР±РµРіРёС‚Рµ СЃ СЌС‚РѕРіРѕ РјРµСЃС‚Р° РґРѕ РєРѕРЅС†Р° Р·Р°Р»Р°.")
 	}
 	if (index == 9)
 	{
-		sendChat("/todo Отлично..*расставляя галочки")
+		sendChat("/todo РћС‚Р»РёС‡РЅРѕ..*СЂР°СЃСЃС‚Р°РІР»СЏСЏ РіР°Р»РѕС‡РєРё")
 		sleep, 2000
-		sendChat("Вы приняты на стажировку.")
+		sendChat("Р’С‹ РїСЂРёРЅСЏС‚С‹ РЅР° СЃС‚Р°Р¶РёСЂРѕРІРєСѓ.")
 		sleep, 2000
-		sendChat("/do Под столом лежит пакет с формой и рацией.")
+		sendChat("/do РџРѕРґ СЃС‚РѕР»РѕРј Р»РµР¶РёС‚ РїР°РєРµС‚ СЃ С„РѕСЂРјРѕР№ Рё СЂР°С†РёРµР№.")
 		sleep, 2000
-		sendChat("/me достал" plrSex[1] " пакет и передал" plrSex[1] " человеку напротив")
+		sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " РїР°РєРµС‚ Рё РїРµСЂРµРґР°Р»" plrSex[1] " С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ")
 		return
 	}
 	if (index == 10)
 	{
-		sendChat("Отказ. По причине: проф. непригодность.")
+		sendChat("РћС‚РєР°Р·. РџРѕ РїСЂРёС‡РёРЅРµ: РїСЂРѕС„. РЅРµРїСЂРёРіРѕРґРЅРѕСЃС‚СЊ.")
 		return
 	}
 	return
@@ -1003,46 +1003,46 @@ dialogListQuickMenu(index)
 	if (index == 1)
 	{
 		if (targedID == -1 || getPlayerScore(targedID) == "")
-			return addChatMessageEx(COLOR_BLUE, "[Bank Helper] Выделите игрока правой кнопкой мыши.")
+			return addChatMessageEx(COLOR_BLUE, "[Bank Helper] Р’С‹РґРµР»РёС‚Рµ РёРіСЂРѕРєР° РїСЂР°РІРѕР№ РєРЅРѕРїРєРѕР№ РјС‹С€Рё.")
 		sendChat("/expel " targedID)
 		sleep, 3000
-		sendChat("/me накидывается на нарушителя и пытается заломать ему руки.")
+		sendChat("/me РЅР°РєРёРґС‹РІР°РµС‚СЃСЏ РЅР° РЅР°СЂСѓС€РёС‚РµР»СЏ Рё РїС‹С‚Р°РµС‚СЃСЏ Р·Р°Р»РѕРјР°С‚СЊ РµРјСѓ СЂСѓРєРё.")
 		sleep, 3000
-		sendChat("/me крепко держа нарушителя за руки, выводит его на улицу.")
+		sendChat("/me РєСЂРµРїРєРѕ РґРµСЂР¶Р° РЅР°СЂСѓС€РёС‚РµР»СЏ Р·Р° СЂСѓРєРё, РІС‹РІРѕРґРёС‚ РµРіРѕ РЅР° СѓР»РёС†Сѓ.")
 	}
 	if (index == 2)
 	{
 		if (targedID == -1 || getPlayerScore(targedID) == "")
-			return addChatMessageEx(COLOR_BLUE, "[Bank Helper] Выделите игрока правой кнопкой мыши.")
-		sendChat("/me достал" plrSex[1] " паспорт из кармана.")
+			return addChatMessageEx(COLOR_BLUE, "[Bank Helper] Р’С‹РґРµР»РёС‚Рµ РёРіСЂРѕРєР° РїСЂР°РІРѕР№ РєРЅРѕРїРєРѕР№ РјС‹С€Рё.")
+		sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " РїР°СЃРїРѕСЂС‚ РёР· РєР°СЂРјР°РЅР°.")
 		sleep 1600
-		sendChat("/do " name " " firstname " держит паспорт в руке.")
+		sendChat("/do " name " " firstname " РґРµСЂР¶РёС‚ РїР°СЃРїРѕСЂС‚ РІ СЂСѓРєРµ.")
 		sleep 1600
-		sendChat("/me показал" plrSex[1] " паспорт человеку напротив.")
+		sendChat("/me РїРѕРєР°Р·Р°Р»" plrSex[1] " РїР°СЃРїРѕСЂС‚ С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 		sleep 1600
 		sendChat("/showpass " targedID)
 	}
 	if (index == 3)
 	{
 		if (targedID == -1 || getPlayerScore(targedID) == "")
-			return addChatMessageEx(COLOR_BLUE, "[Bank Helper] Выделите игрока правой кнопкой мыши.")
-		sendChat("/me достал" plrSex[1] " мед.карту из кармана.")
+			return addChatMessageEx(COLOR_BLUE, "[Bank Helper] Р’С‹РґРµР»РёС‚Рµ РёРіСЂРѕРєР° РїСЂР°РІРѕР№ РєРЅРѕРїРєРѕР№ РјС‹С€Рё.")
+		sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " РјРµРґ.РєР°СЂС‚Сѓ РёР· РєР°СЂРјР°РЅР°.")
 		sleep 1600
-		sendChat("/do " name " " firstname " держит мед.карту в руке.")
+		sendChat("/do " name " " firstname " РґРµСЂР¶РёС‚ РјРµРґ.РєР°СЂС‚Сѓ РІ СЂСѓРєРµ.")
 		sleep 1600
-		sendChat("/me показал" plrSex[1] " мед.карту человеку напротив.")
+		sendChat("/me РїРѕРєР°Р·Р°Р»" plrSex[1] " РјРµРґ.РєР°СЂС‚Сѓ С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 		sleep 1600
 		sendChat("/showmc " targedID)
 	}
 	if (index == 4)
 	{
 		if (targedID == -1 || getPlayerScore(targedID) == "")
-			return addChatMessageEx(COLOR_BLUE, "[Bank Helper] Выделите игрока правой кнопкой мыши.")
-		sendChat("/me достал" plrSex[1] " лицензии из кармана.")
+			return addChatMessageEx(COLOR_BLUE, "[Bank Helper] Р’С‹РґРµР»РёС‚Рµ РёРіСЂРѕРєР° РїСЂР°РІРѕР№ РєРЅРѕРїРєРѕР№ РјС‹С€Рё.")
+		sendChat("/me РґРѕСЃС‚Р°Р»" plrSex[1] " Р»РёС†РµРЅР·РёРё РёР· РєР°СЂРјР°РЅР°.")
 		sleep 1600
-		sendChat("/do " name " " firstname " держит лицензии в руке.")
+		sendChat("/do " name " " firstname " РґРµСЂР¶РёС‚ Р»РёС†РµРЅР·РёРё РІ СЂСѓРєРµ.")
 		sleep 1600
-		sendChat("/me показал" plrSex[1] " лицензии человеку напротив.")
+		sendChat("/me РїРѕРєР°Р·Р°Р»" plrSex[1] " Р»РёС†РµРЅР·РёРё С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
 		sleep 1600
 		sendChat("/showlic " targedID)
 	}
@@ -1053,47 +1053,47 @@ dialogListQuickMenu(index)
 	if (index == 7)
 	{
 		if (targedID == -1 || getPlayerScore(targedID) == "")
-			return addChatMessageEx(COLOR_BLUE, "[Bank Helper] Выделите игрока правой кнопкой мыши.")
+			return addChatMessageEx(COLOR_BLUE, "[Bank Helper] Р’С‹РґРµР»РёС‚Рµ РёРіСЂРѕРєР° РїСЂР°РІРѕР№ РєРЅРѕРїРєРѕР№ РјС‹С€Рё.")
 		sendChat("/bankmenu " targedID)
 	}
 	return
 }
 
 /*
-	Диалоги
+	Р”РёР°Р»РѕРіРё
 */
 openDialog(id)
 {
-	; Главное меню
+	; Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ
 	if (id == 1)
 	{
-		showDialog(DIALOG_STYLE_LIST, COLOR_RODINA_CAPTION "Bank Helper", DIALOG_COLOR_WHITE "1. Главная информация`n2. Клавиши`n3. Команды`n4. Собеседование`n5. Лекции`n6. Радио", "Закрыть", "", 1)
+		showDialog(DIALOG_STYLE_LIST, COLOR_RODINA_CAPTION "Bank Helper", DIALOG_COLOR_WHITE "1. Р“Р»Р°РІРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ`n2. РљР»Р°РІРёС€Рё`n3. РљРѕРјР°РЅРґС‹`n4. РЎРѕР±РµСЃРµРґРѕРІР°РЅРёРµ`n5. Р›РµРєС†РёРё`n6. Р Р°РґРёРѕ", "Р—Р°РєСЂС‹С‚СЊ", "", 1)
 		onDialogResponse(1, "dialogListMenu")
 		return
 	}
-	; Информация
+	; РРЅС„РѕСЂРјР°С†РёСЏ
 	if (id == 2)
 	{
-		showDialog(DIALOG_STYLE_MSGBOX, COLOR_RODINA_CAPTION "Bank Helper [Информация]", COLOR_RODINA_CAPTION "Bank Helper [" version_date "]`nРазработчик: Maxim_Chekistov & Dmitriy_Hawk" COLOR_RODINA_CAPTION "`n`nBank Helper " DIALOG_COLOR_WHITE "- хелпер для сотрудников Центрального банка, который`nимеет множество функциональных биндов и команд для`nоблегчения выполнения вашей работы.`n`nЕсли нашли ошибки в хелпере, то:`n/bug [текст]`nVK: vk.com/kplr452b | vk.com/dmitriy_hawk", "Закрыть", "", 2)
+		showDialog(DIALOG_STYLE_MSGBOX, COLOR_RODINA_CAPTION "Bank Helper [РРЅС„РѕСЂРјР°С†РёСЏ]", COLOR_RODINA_CAPTION "Bank Helper [" version_date "]`nР Р°Р·СЂР°Р±РѕС‚С‡РёРє: Maxim_Chekistov & Dmitriy_Hawk" COLOR_RODINA_CAPTION "`n`nBank Helper " DIALOG_COLOR_WHITE "- С…РµР»РїРµСЂ РґР»СЏ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ Р¦РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ Р±Р°РЅРєР°, РєРѕС‚РѕСЂС‹Р№`nРёРјРµРµС‚ РјРЅРѕР¶РµСЃС‚РІРѕ С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅС‹С… Р±РёРЅРґРѕРІ Рё РєРѕРјР°РЅРґ РґР»СЏ`nРѕР±Р»РµРіС‡РµРЅРёСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РІР°С€РµР№ СЂР°Р±РѕС‚С‹.`n`nР•СЃР»Рё РЅР°С€Р»Рё РѕС€РёР±РєРё РІ С…РµР»РїРµСЂРµ, С‚Рѕ:`n/bug [С‚РµРєСЃС‚]`nVK: vk.com/kplr452b | vk.com/dmitriy_hawk", "Р—Р°РєСЂС‹С‚СЊ", "", 2)
 	}
-	; Клавиши хелпера
+	; РљР»Р°РІРёС€Рё С…РµР»РїРµСЂР°
 	if (id == 3)
 	{
-		showDialog(DIALOG_STYLE_MSGBOX, COLOR_RODINA_CAPTION "Bank Helper [Клавиши]", COLOR_RODINA_CAPTION "Основные бинды хелпера:`n`n" key_welcome DIALOG_COLOR_WHITE " - приветствие`n" COLOR_RODINA_CAPTION key_alert DIALOG_COLOR_WHITE " - предупреждение игроку`n" COLOR_RODINA_CAPTION key_lecture_dress DIALOG_COLOR_WHITE " - лекция 'Дресс-Код'`n" COLOR_RODINA_CAPTION key_lecture_eti DIALOG_COLOR_WHITE " - лекция 'Этикет'`n" COLOR_RODINA_CAPTION key_lecture_rule DIALOG_COLOR_WHITE " - лекция 'Устав'`n" COLOR_RODINA_CAPTION key_lecture_sub DIALOG_COLOR_WHITE " - лекция 'Субординация'`n" COLOR_RODINA_CAPTION key_lecture_drugs DIALOG_COLOR_WHITE " - лекция 'Наркотики'`n" COLOR_RODINA_CAPTION key_sobes DIALOG_COLOR_WHITE " - начать собеседование`n" COLOR_RODINA_CAPTION key_menu DIALOG_COLOR_WHITE " - открыть главное меню`n" COLOR_RODINA_CAPTION key_report DIALOG_COLOR_WHITE " - быстрый репорт`n" COLOR_RODINA_CAPTION key_quickmenu DIALOG_COLOR_WHITE " - быстрое меню`n" COLOR_RODINA_CAPTION key_bankmenu DIALOG_COLOR_WHITE " - операция со счетом", "Закрыть", "", 3)
+		showDialog(DIALOG_STYLE_MSGBOX, COLOR_RODINA_CAPTION "Bank Helper [РљР»Р°РІРёС€Рё]", COLOR_RODINA_CAPTION "РћСЃРЅРѕРІРЅС‹Рµ Р±РёРЅРґС‹ С…РµР»РїРµСЂР°:`n`n" key_welcome DIALOG_COLOR_WHITE " - РїСЂРёРІРµС‚СЃС‚РІРёРµ`n" COLOR_RODINA_CAPTION key_alert DIALOG_COLOR_WHITE " - РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ РёРіСЂРѕРєСѓ`n" COLOR_RODINA_CAPTION key_lecture_dress DIALOG_COLOR_WHITE " - Р»РµРєС†РёСЏ 'Р”СЂРµСЃСЃ-РљРѕРґ'`n" COLOR_RODINA_CAPTION key_lecture_eti DIALOG_COLOR_WHITE " - Р»РµРєС†РёСЏ 'Р­С‚РёРєРµС‚'`n" COLOR_RODINA_CAPTION key_lecture_rule DIALOG_COLOR_WHITE " - Р»РµРєС†РёСЏ 'РЈСЃС‚Р°РІ'`n" COLOR_RODINA_CAPTION key_lecture_sub DIALOG_COLOR_WHITE " - Р»РµРєС†РёСЏ 'РЎСѓР±РѕСЂРґРёРЅР°С†РёСЏ'`n" COLOR_RODINA_CAPTION key_lecture_drugs DIALOG_COLOR_WHITE " - Р»РµРєС†РёСЏ 'РќР°СЂРєРѕС‚РёРєРё'`n" COLOR_RODINA_CAPTION key_sobes DIALOG_COLOR_WHITE " - РЅР°С‡Р°С‚СЊ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ`n" COLOR_RODINA_CAPTION key_menu DIALOG_COLOR_WHITE " - РѕС‚РєСЂС‹С‚СЊ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ`n" COLOR_RODINA_CAPTION key_report DIALOG_COLOR_WHITE " - Р±С‹СЃС‚СЂС‹Р№ СЂРµРїРѕСЂС‚`n" COLOR_RODINA_CAPTION key_quickmenu DIALOG_COLOR_WHITE " - Р±С‹СЃС‚СЂРѕРµ РјРµРЅСЋ`n" COLOR_RODINA_CAPTION key_bankmenu DIALOG_COLOR_WHITE " - РѕРїРµСЂР°С†РёСЏ СЃРѕ СЃС‡РµС‚РѕРј", "Р—Р°РєСЂС‹С‚СЊ", "", 3)
 	}
-	; Команды хелпера
+	; РљРѕРјР°РЅРґС‹ С…РµР»РїРµСЂР°
 	if (id == 4)
 	{
-		showDialog(DIALOG_STYLE_MSGBOX, COLOR_RODINA_CAPTION "Bank Helper [Команды]", COLOR_RODINA_CAPTION "Основные команды хелпера:`n`n" "/lecture [index]" DIALOG_COLOR_WHITE " - начать лекцию`n" COLOR_RODINA_CAPTION "/sob" DIALOG_COLOR_WHITE " - начать собеседование`n" COLOR_RODINA_CAPTION "/rule [index]" DIALOG_COLOR_WHITE " - показать пункт устава`n" COLOR_RODINA_CAPTION "/gg" DIALOG_COLOR_WHITE " - приветствие`n" COLOR_RODINA_CAPTION "/bug [text]" DIALOG_COLOR_WHITE " - отправить вопрос разработчикам`n" COLOR_RODINA_CAPTION "/bh" DIALOG_COLOR_WHITE " - открыть главное меню`n" COLOR_RODINA_CAPTION "/exit" DIALOG_COLOR_WHITE " - завершить работу хелпера`n" COLOR_RODINA_CAPTION "/docs [1-3]" DIALOG_COLOR_WHITE " - проверить документы`n" COLOR_RODINA_CAPTION "/post" DIALOG_COLOR_WHITE " - доложить состояние поста`n" COLOR_RODINA_CAPTION "/clear" DIALOG_COLOR_WHITE " - очистить чат", "Закрыть", "", 4)
+		showDialog(DIALOG_STYLE_MSGBOX, COLOR_RODINA_CAPTION "Bank Helper [РљРѕРјР°РЅРґС‹]", COLOR_RODINA_CAPTION "РћСЃРЅРѕРІРЅС‹Рµ РєРѕРјР°РЅРґС‹ С…РµР»РїРµСЂР°:`n`n" "/lecture [index]" DIALOG_COLOR_WHITE " - РЅР°С‡Р°С‚СЊ Р»РµРєС†РёСЋ`n" COLOR_RODINA_CAPTION "/sob" DIALOG_COLOR_WHITE " - РЅР°С‡Р°С‚СЊ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ`n" COLOR_RODINA_CAPTION "/rule [index]" DIALOG_COLOR_WHITE " - РїРѕРєР°Р·Р°С‚СЊ РїСѓРЅРєС‚ СѓСЃС‚Р°РІР°`n" COLOR_RODINA_CAPTION "/gg" DIALOG_COLOR_WHITE " - РїСЂРёРІРµС‚СЃС‚РІРёРµ`n" COLOR_RODINA_CAPTION "/bug [text]" DIALOG_COLOR_WHITE " - РѕС‚РїСЂР°РІРёС‚СЊ РІРѕРїСЂРѕСЃ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєР°Рј`n" COLOR_RODINA_CAPTION "/bh" DIALOG_COLOR_WHITE " - РѕС‚РєСЂС‹С‚СЊ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ`n" COLOR_RODINA_CAPTION "/exit" DIALOG_COLOR_WHITE " - Р·Р°РІРµСЂС€РёС‚СЊ СЂР°Р±РѕС‚Сѓ С…РµР»РїРµСЂР°`n" COLOR_RODINA_CAPTION "/docs [1-3]" DIALOG_COLOR_WHITE " - РїСЂРѕРІРµСЂРёС‚СЊ РґРѕРєСѓРјРµРЅС‚С‹`n" COLOR_RODINA_CAPTION "/post" DIALOG_COLOR_WHITE " - РґРѕР»РѕР¶РёС‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ РїРѕСЃС‚Р°`n" COLOR_RODINA_CAPTION "/clear" DIALOG_COLOR_WHITE " - РѕС‡РёСЃС‚РёС‚СЊ С‡Р°С‚", "Р—Р°РєСЂС‹С‚СЊ", "", 4)
 	}
-	; Собеседование
+	; РЎРѕР±РµСЃРµРґРѕРІР°РЅРёРµ
 	if (id == 5)
 	{
-		showDialog(DIALOG_STYLE_LIST, COLOR_RODINA_CAPTION "Bank Helper [Собеседование]", DIALOG_COLOR_WHITE "1. Приветствие`n2. Запрос документов`n3. Проверка паспорта`n4. Проверка лицензий`n5. Проверка мед.карты`n6. Владение дубинкой`n7. Принять владение дубинкой`n8. Нормативы`n" DIALOG_COLOR_GREEN "9. Принять`n" DIALOG_COLOR_RED "10. Отказать", "Закрыть", "", 5)
+		showDialog(DIALOG_STYLE_LIST, COLOR_RODINA_CAPTION "Bank Helper [РЎРѕР±РµСЃРµРґРѕРІР°РЅРёРµ]", DIALOG_COLOR_WHITE "1. РџСЂРёРІРµС‚СЃС‚РІРёРµ`n2. Р—Р°РїСЂРѕСЃ РґРѕРєСѓРјРµРЅС‚РѕРІ`n3. РџСЂРѕРІРµСЂРєР° РїР°СЃРїРѕСЂС‚Р°`n4. РџСЂРѕРІРµСЂРєР° Р»РёС†РµРЅР·РёР№`n5. РџСЂРѕРІРµСЂРєР° РјРµРґ.РєР°СЂС‚С‹`n6. Р’Р»Р°РґРµРЅРёРµ РґСѓР±РёРЅРєРѕР№`n7. РџСЂРёРЅСЏС‚СЊ РІР»Р°РґРµРЅРёРµ РґСѓР±РёРЅРєРѕР№`n8. РќРѕСЂРјР°С‚РёРІС‹`n" DIALOG_COLOR_GREEN "9. РџСЂРёРЅСЏС‚СЊ`n" DIALOG_COLOR_RED "10. РћС‚РєР°Р·Р°С‚СЊ", "Р—Р°РєСЂС‹С‚СЊ", "", 5)
 		onDialogResponse(5, "dialogListSobes")
 		return
 	}
-	; Лекции
+	; Р›РµРєС†РёРё
 	if (id == 6)
 	{
 		lectures := ""
@@ -1108,14 +1108,14 @@ openDialog(id)
 		}
 		
 		
-		showDialog(DIALOG_STYLE_LIST, COLOR_RODINA_CAPTION "Bank Helper [Лекции]", DIALOG_COLOR_WHITE lectures, "Закрыть", "", 6)
+		showDialog(DIALOG_STYLE_LIST, COLOR_RODINA_CAPTION "Bank Helper [Р›РµРєС†РёРё]", DIALOG_COLOR_WHITE lectures, "Р—Р°РєСЂС‹С‚СЊ", "", 6)
 		onDialogResponse(6, "dialogListLecture")
 		return
 	}
-	; Быстрое меню
+	; Р‘С‹СЃС‚СЂРѕРµ РјРµРЅСЋ
 	if (id == 7)
 	{
-		showDialog(DIALOG_STYLE_LIST, COLOR_RODINA_CAPTION "Bank Helper [" targedID "]", DIALOG_COLOR_WHITE "1. Выгнать нарушителя`n2. Показать паспорт`n3. Показать мед.карту`n4. Показать лицензии`n5. Лекции`n6. Собеседование`n7. Операция со счетом", "Закрыть", "", 7)
+		showDialog(DIALOG_STYLE_LIST, COLOR_RODINA_CAPTION "Bank Helper [" targedID "]", DIALOG_COLOR_WHITE "1. Р’С‹РіРЅР°С‚СЊ РЅР°СЂСѓС€РёС‚РµР»СЏ`n2. РџРѕРєР°Р·Р°С‚СЊ РїР°СЃРїРѕСЂС‚`n3. РџРѕРєР°Р·Р°С‚СЊ РјРµРґ.РєР°СЂС‚Сѓ`n4. РџРѕРєР°Р·Р°С‚СЊ Р»РёС†РµРЅР·РёРё`n5. Р›РµРєС†РёРё`n6. РЎРѕР±РµСЃРµРґРѕРІР°РЅРёРµ`n7. РћРїРµСЂР°С†РёСЏ СЃРѕ СЃС‡РµС‚РѕРј", "Р—Р°РєСЂС‹С‚СЊ", "", 7)
 		onDialogResponse(7, "dialogListQuickMenu")
 		return
 	}
@@ -1123,7 +1123,7 @@ openDialog(id)
 }
 
 /*
-	Метка выделенного игрока
+	РњРµС‚РєР° РІС‹РґРµР»РµРЅРЅРѕРіРѕ РёРіСЂРѕРєР°
 */
 ~RButton::
 {
@@ -1132,14 +1132,14 @@ openDialog(id)
 	if (getIdByPed(getTargetPed()) != -1 and getIdByPed(getTargetPed()) != targedID)
 	{
 		targedID := getIdByPed(getTargetPed())
-		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Вы установили метку на игрока " getPlayerName(targedID) "[" targedID "]")
+		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Р’С‹ СѓСЃС‚Р°РЅРѕРІРёР»Рё РјРµС‚РєСѓ РЅР° РёРіСЂРѕРєР° " getPlayerName(targedID) "[" targedID "]")
 		return
 	}
 	return
 }
 
 /*
-	Автоотыгровка оружия
+	РђРІС‚РѕРѕС‚С‹РіСЂРѕРІРєР° РѕСЂСѓР¶РёСЏ
 */
 currentWeapon := -1
 
@@ -1148,7 +1148,7 @@ plrTick:
 	if (targedID != -1 and !getStreamedInPlayersInfo()[targedID])
 	{
 		targedID = -1
-		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: Игрок вне зоны стрима. Метка сброшена.")
+		addChatMessageEx(COLOR_BLUE, "[Bank Helper]: РРіСЂРѕРє РІРЅРµ Р·РѕРЅС‹ СЃС‚СЂРёРјР°. РњРµС‚РєР° СЃР±СЂРѕС€РµРЅР°.")
 	}
 	
 	weapon := getPlayerWeaponId()
@@ -1169,13 +1169,13 @@ playWeapon(id, type) {
 	{
 		if (type == 1)
 		{
-			sendChat("/me убрал" plrSex[1] " дубинку в сумку и закрыл" plrSex[1] " ее.")
+			sendChat("/me СѓР±СЂР°Р»" plrSex[1] " РґСѓР±РёРЅРєСѓ РІ СЃСѓРјРєСѓ Рё Р·Р°РєСЂС‹Р»" plrSex[1] " РµРµ.")
 		}
 		if (type == 2)
 		{
-			sendChat("/do Дубинка висит на поясе.")
+			sendChat("/do Р”СѓР±РёРЅРєР° РІРёСЃРёС‚ РЅР° РїРѕСЏСЃРµ.")
 			sleep 2000
-			sendChat("/me снял" plrSex[1] " дубинку с пояса.")
+			sendChat("/me СЃРЅСЏР»" plrSex[1] " РґСѓР±РёРЅРєСѓ СЃ РїРѕСЏСЃР°.")
 		}
 	}
 }
